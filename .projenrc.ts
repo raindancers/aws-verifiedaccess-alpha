@@ -2,7 +2,7 @@ import { awscdk } from 'projen';
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Andrew Frazer',
   authorAddress: 'andrew.frazer@raindancers.cloud',
-  cdkVersion: '2.1.0',
+  cdkVersion: '2.87.0',
   defaultReleaseBranch: 'main',
   jsiiVersion: '~5.0.0',
   name: 'aws-verifiedaccess-alpha',
