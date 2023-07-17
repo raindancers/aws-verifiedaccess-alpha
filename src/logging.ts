@@ -142,7 +142,7 @@ export abstract class VerifiedAccessLog {
         prefix: props.prefix,
       },
       includeTrustContext: props.includeTrustContext ?? true,
-      logVersion: props.logVersion ?? LogVersion.OCSF_0_1,
+      logVersion: props.logVersion ?? LogVersion.OCSF_1_0_0_RC2,
     };
   };
 

@@ -151,12 +151,11 @@ class ImportedAccessGroup extends core.Resource implements IAccessGroup {
           service: 'EC2',
           action: 'describeVerifiedAccessGroups',
           parameters: {
-            Filters: [
+            Filters:
               {
                 Name: 'Description',
                 Values: [props.description],
               },
-            ],
           },
           physicalResourceId: cr.PhysicalResourceId.of('lookupbyDescription'),
         },
