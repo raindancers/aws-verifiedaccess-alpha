@@ -3,6 +3,7 @@ import * as core from 'aws-cdk-lib';
 import {
   aws_ec2 as ec2,
   custom_resources as cr,
+  aws_ram as ram,
 }
   from 'aws-cdk-lib';
 
@@ -12,7 +13,6 @@ import {
   IAccessInstance,
 }
   from './index';
-
 
 /**
  * AcessGroupProps
@@ -93,7 +93,19 @@ export class AccessGroup extends core.Resource implements IAccessGroup {
 
     this.description = props.description;
     this.id = accessGroup.attrVerifiedAccessGroupId;
+
   }
+
+  public share(name: string, principals: string[]): void {
+
+    new ram.CfnResourceShare(this, `${name}`, {
+      name: name,
+      principals: principals,
+      resourceArns: [
+        `arn:aws:ec2:${core.Aws.REGION}:${core.Aws.ACCOUNT_ID}:verified-access-group/${this.id}`,
+      ],
+    });
+  };
 }
 /**
  * Props to import an Acess Group

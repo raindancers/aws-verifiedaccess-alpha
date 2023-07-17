@@ -53,6 +53,7 @@ Id of the Access Group.
 | --- | --- |
 | <code><a href="#aws-verifiedaccess-alpha.AccessGroup.toString">toString</a></code> | Returns a string representation of this construct. |
 | <code><a href="#aws-verifiedaccess-alpha.AccessGroup.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#aws-verifiedaccess-alpha.AccessGroup.share">share</a></code> | *No description.* |
 
 ---
 
@@ -83,6 +84,24 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 ###### `policy`<sup>Required</sup> <a name="policy" id="aws-verifiedaccess-alpha.AccessGroup.applyRemovalPolicy.parameter.policy"></a>
 
 - *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+##### `share` <a name="share" id="aws-verifiedaccess-alpha.AccessGroup.share"></a>
+
+```typescript
+public share(name: string, principals: string[]): void
+```
+
+###### `name`<sup>Required</sup> <a name="name" id="aws-verifiedaccess-alpha.AccessGroup.share.parameter.name"></a>
+
+- *Type:* string
+
+---
+
+###### `principals`<sup>Required</sup> <a name="principals" id="aws-verifiedaccess-alpha.AccessGroup.share.parameter.principals"></a>
+
+- *Type:* string[]
 
 ---
 
