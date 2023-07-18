@@ -6,13 +6,13 @@ def on_event(event, context):
 
 	import boto3
 
-    ec2 = boto3.client('ec2')
+	ec2 = boto3.client('ec2')
 	props = event["ResourceProperties"]
 
-    response = ec2.describe_verified_access_groups()
-    id = next(item for item in response['VerifiedAccessGroups'] if item["Description"] == props['Description'])['VerifiedAccessGroupId']
+	response = ec2.describe_verified_access_groups()
+	id = next(item for item in response['VerifiedAccessGroups'] if item["Description"] == props['Description'])['VerifiedAccessGroupId']
 
-    print(thing)
+	print(thing)
 
 	return { 
 		'PhysicaResourceID': id,
