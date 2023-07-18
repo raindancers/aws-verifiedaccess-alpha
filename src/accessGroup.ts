@@ -152,7 +152,7 @@ class ImportedAccessGroup extends core.Resource implements IAccessGroup {
       const onEvent = new lambda.Function(this, 'GetGroupId', {
         runtime: lambda.Runtime.PYTHON_3_10,
         handler: 'lookupAccessGroup.on_event',
-        code: lambda.Code.fromAsset(path.join(__dirname, './lambda')),
+        code: lambda.Code.fromAsset(path.join(__dirname, '../assets/lambda')),
         timeout: core.Duration.seconds(60),
       });
 
