@@ -1,9 +1,13 @@
+import * as path from 'path';
 import * as core from 'aws-cdk-lib';
 
 import {
   aws_ec2 as ec2,
   custom_resources as cr,
   aws_ram as ram,
+  aws_lambda as lambda,
+  aws_iam as iam,
+  aws_logs as logs,
 }
   from 'aws-cdk-lib';
 
@@ -13,7 +17,6 @@ import {
   IAccessInstance,
 }
   from './index';
-
 /**
  * AcessGroupProps
  */
@@ -145,26 +148,35 @@ class ImportedAccessGroup extends core.Resource implements IAccessGroup {
     if (props.accessGroupId) {
       groupId = props.accessGroupId;
     } else {
-      // aws ec2 describe-verified-access-groups  --filters Name=Description,Values=group1
-      const lookup = new cr.AwsCustomResource(this, 'LookupByDescripton', {
-        onCreate: {
-          service: 'EC2',
-          action: 'describeVerifiedAccessGroups',
-          parameters: {
-            Filters:
-              {
-                Name: 'Description',
-                Values: [props.description],
-              },
-          },
-          physicalResourceId: cr.PhysicalResourceId.of('lookupbyDescription'),
-        },
-        policy: cr.AwsCustomResourcePolicy.fromSdkCalls({
-          resources: cr.AwsCustomResourcePolicy.ANY_RESOURCE,
-        }),
+
+      const onEvent = new lambda.Function(this, 'GetGroupId', {
+        runtime: lambda.Runtime.PYTHON_3_10,
+        handler: 'lookupAccessGroup.on_event',
+        code: lambda.Code.fromAsset(path.join(__dirname, './lambda')),
+        timeout: core.Duration.seconds(60),
       });
 
-      groupId = lookup.getResponseField('VerifiedAccessGroups[0].VerifiedAccessGroupId');
+      onEvent.addToRolePolicy(
+        new iam.PolicyStatement({
+          effect: iam.Effect.ALLOW,
+          resources: ['*'],
+          actions: ['ec2:*'],
+        }),
+      );
+
+      const getID = new core.CustomResource(this, 'getGroupIDCR', {
+        serviceToken: new cr.Provider(this, 'GetGroupIdProvider', {
+          onEventHandler: onEvent,
+          logRetention: logs.RetentionDays.FIVE_DAYS,
+          providerFunctionName: core.PhysicalName.GENERATE_IF_NEEDED,
+        }).serviceToken,
+        properties: {
+          Description: props.description,
+        },
+      });
+
+      groupId = getID.getAttString('GroupId');
+
     }
 
     this.id = groupId;
