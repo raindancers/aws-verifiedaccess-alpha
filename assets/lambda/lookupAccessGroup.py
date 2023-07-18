@@ -12,8 +12,6 @@ def on_event(event, context):
 	response = ec2.describe_verified_access_groups()
 	id = next(item for item in response['VerifiedAccessGroups'] if item["Description"] == props['Description'])['VerifiedAccessGroupId']
 
-	print(thing)
-
 	return { 
 		'PhysicaResourceID': id,
 		'Data': { 
