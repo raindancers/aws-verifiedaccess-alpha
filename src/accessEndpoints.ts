@@ -234,7 +234,7 @@ export class AccessGroupEndpoint extends core.Resource implements IAccessEndpoin
     }
 
     const accessEndpoint = new ec2.CfnVerifiedAccessEndpoint(this, 'Resource', {
-      applicationDomain: props.hostedZone.zoneName,
+      applicationDomain: `${props.hostname}.${props.hostedZone?.zoneName}`,
       attachmentType: props.attachmentType ?? AttachementType.VPC,
       domainCertificateArn: certificateArn,
       endpointDomainPrefix: props.hostname,
