@@ -144,11 +144,7 @@ export interface TrustProviderProps {
    */
   readonly policyReferenceName: string;
   /**
-   * Type
-   */
-  readonly trustProviderType: TrustProviderType;
-  /**
-   * User Trst Provider Type
+   * User Trust Provider Type
    * @default None
    */
   readonly userTrustProviderType?: UserTrustProviderType | undefined ;
@@ -201,9 +197,25 @@ export class TrustProvider extends core.Resource implements ITrustProvider {
   constructor(scope: constructs.Construct, id: string, props: TrustProviderProps) {
     super(scope, id);
 
+    // throw an error if both deviceTrustProviderType userTrustProviderType are provided
+    if (props.deviceTrustProviderType && props.userTrustProviderType) {
+      throw new Error('Only one of deviceTrustProviderType or userTrustProviderType can be provided');
+    }
+    // throw an error if neither deviceTrustProviderType userTrustProviderType are provided
+    if (!props.deviceTrustProviderType && !props.userTrustProviderType) {
+      throw new Error('One of deviceTrustProviderType or userTrustProviderType must be provided');
+    }
+
+
+    if (props.deviceTrustProviderType) {
+      this.trustProviderType = TrustProviderType.DEVICE;
+    } else {
+      this.trustProviderType = TrustProviderType.USER;
+    }
+
     const cfnVerifiedAccessTrustProvider = new ec2.CfnVerifiedAccessTrustProvider(this, 'Resource', {
       policyReferenceName: props.policyReferenceName,
-      trustProviderType: props.trustProviderType,
+      trustProviderType: this.trustProviderType,
 
       // the properties below are optional
       description: props.description,
@@ -216,7 +228,5 @@ export class TrustProvider extends core.Resource implements ITrustProvider {
 
     this.id = cfnVerifiedAccessTrustProvider.attrVerifiedAccessTrustProviderId;
     this.policyReferenceName = props.policyReferenceName;
-    this.trustProviderType = props.trustProviderType;
-
   }
 }

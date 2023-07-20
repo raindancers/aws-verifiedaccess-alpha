@@ -2020,13 +2020,12 @@ const trustProviderProps: TrustProviderProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#aws-verifiedaccess-alpha.TrustProviderProps.property.policyReferenceName">policyReferenceName</a></code> | <code>string</code> | Reference Name. |
-| <code><a href="#aws-verifiedaccess-alpha.TrustProviderProps.property.trustProviderType">trustProviderType</a></code> | <code><a href="#aws-verifiedaccess-alpha.TrustProviderType">TrustProviderType</a></code> | Type. |
 | <code><a href="#aws-verifiedaccess-alpha.TrustProviderProps.property.description">description</a></code> | <code>string</code> | Description. |
 | <code><a href="#aws-verifiedaccess-alpha.TrustProviderProps.property.deviceOptions">deviceOptions</a></code> | <code><a href="#aws-verifiedaccess-alpha.DeviceOptions">DeviceOptions</a></code> | deviceOptons. |
 | <code><a href="#aws-verifiedaccess-alpha.TrustProviderProps.property.deviceTrustProviderType">deviceTrustProviderType</a></code> | <code><a href="#aws-verifiedaccess-alpha.DeviceTrustProviderType">DeviceTrustProviderType</a></code> | trust Privider. |
 | <code><a href="#aws-verifiedaccess-alpha.TrustProviderProps.property.oidcOptions">oidcOptions</a></code> | <code><a href="#aws-verifiedaccess-alpha.OIDCOptions">OIDCOptions</a></code> | oidc Options. |
 | <code><a href="#aws-verifiedaccess-alpha.TrustProviderProps.property.tags">tags</a></code> | <code>aws-cdk-lib.Tag[]</code> | tags. |
-| <code><a href="#aws-verifiedaccess-alpha.TrustProviderProps.property.userTrustProviderType">userTrustProviderType</a></code> | <code><a href="#aws-verifiedaccess-alpha.UserTrustProviderType">UserTrustProviderType</a></code> | User Trst Provider Type. |
+| <code><a href="#aws-verifiedaccess-alpha.TrustProviderProps.property.userTrustProviderType">userTrustProviderType</a></code> | <code><a href="#aws-verifiedaccess-alpha.UserTrustProviderType">UserTrustProviderType</a></code> | User Trust Provider Type. |
 
 ---
 
@@ -2039,18 +2038,6 @@ public readonly policyReferenceName: string;
 - *Type:* string
 
 Reference Name.
-
----
-
-##### `trustProviderType`<sup>Required</sup> <a name="trustProviderType" id="aws-verifiedaccess-alpha.TrustProviderProps.property.trustProviderType"></a>
-
-```typescript
-public readonly trustProviderType: TrustProviderType;
-```
-
-- *Type:* <a href="#aws-verifiedaccess-alpha.TrustProviderType">TrustProviderType</a>
-
-Type.
 
 ---
 
@@ -2128,7 +2115,7 @@ public readonly userTrustProviderType: UserTrustProviderType;
 - *Type:* <a href="#aws-verifiedaccess-alpha.UserTrustProviderType">UserTrustProviderType</a>
 - *Default:* None
 
-User Trst Provider Type.
+User Trust Provider Type.
 
 ---
 
