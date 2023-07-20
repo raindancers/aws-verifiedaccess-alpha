@@ -966,6 +966,7 @@ const accessEndpointProps: AccessEndpointProps = { ... }
 | <code><a href="#aws-verifiedaccess-alpha.AccessEndpointProps.property.accessGroup">accessGroup</a></code> | <code><a href="#aws-verifiedaccess-alpha.IAccessGroup">IAccessGroup</a></code> | the Access Group that this is assocaited with; |
 | <code><a href="#aws-verifiedaccess-alpha.AccessEndpointProps.property.hostedZone">hostedZone</a></code> | <code>aws-cdk-lib.aws_route53.IHostedZone</code> | Zone to use for DNS record. |
 | <code><a href="#aws-verifiedaccess-alpha.AccessEndpointProps.property.hostname">hostname</a></code> | <code>string</code> | hostname. |
+| <code><a href="#aws-verifiedaccess-alpha.AccessEndpointProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | VPC for the Access Group Endpoint is located. |
 | <code><a href="#aws-verifiedaccess-alpha.AccessEndpointProps.property.attachmentType">attachmentType</a></code> | <code><a href="#aws-verifiedaccess-alpha.AttachementType">AttachementType</a></code> | AttachmentType. |
 | <code><a href="#aws-verifiedaccess-alpha.AccessEndpointProps.property.certificate">certificate</a></code> | <code>aws-cdk-lib.aws_certificatemanager.ICertificate</code> | use this certificate for the endpoint. |
 | <code><a href="#aws-verifiedaccess-alpha.AccessEndpointProps.property.description">description</a></code> | <code>string</code> | A Description. |
@@ -1012,6 +1013,18 @@ public readonly hostname: string;
 - *Type:* string
 
 hostname.
+
+---
+
+##### `vpc`<sup>Required</sup> <a name="vpc" id="aws-verifiedaccess-alpha.AccessEndpointProps.property.vpc"></a>
+
+```typescript
+public readonly vpc: IVpc;
+```
+
+- *Type:* aws-cdk-lib.aws_ec2.IVpc
+
+VPC for the Access Group Endpoint is located.
 
 ---
 

@@ -92,6 +92,10 @@ export interface NetworkInterfaceEndpoint {
 
 export interface AccessEndpointProps {
   /**
+   * VPC for the Access Group Endpoint is located.
+   */
+  readonly vpc: ec2.IVpc;
+  /**
    * the Access Group that this is assocaited with;
    */
   readonly accessGroup: IAccessGroup;
@@ -218,11 +222,18 @@ export class AccessGroupEndpoint extends core.Resource implements IAccessEndpoin
     };
 
     var securityGroupIds: string[] = [];
+
     if (props.securityGroups) {
       props.securityGroups.forEach((securityGroup) => {
         securityGroupIds.push(securityGroup.securityGroupId);
       });
-    };
+    } else {
+      const sg = new ec2.SecurityGroup(this, 'SecurityGroup', {
+        vpc: props.vpc,
+      });
+      sg.addIngressRule(ec2.Peer.anyIpv4(), ec2.Port.tcp(443), 'allowSSLin');
+      securityGroupIds.push(sg.securityGroupId);
+    }
 
     // the name for the resource is a Tag
     var tags = props.tags ?? [];
