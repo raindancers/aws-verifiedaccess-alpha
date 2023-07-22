@@ -713,6 +713,227 @@ acessId.
 ---
 
 
+### Group <a name="Group" id="aws-verifiedaccess-alpha.Group"></a>
+
+- *Implements:* <a href="#aws-verifiedaccess-alpha.IGroup">IGroup</a>
+
+Creates Identity Store Group.
+
+#### Initializers <a name="Initializers" id="aws-verifiedaccess-alpha.Group.Initializer"></a>
+
+```typescript
+import { Group } from 'aws-verifiedaccess-alpha'
+
+new Group(scope: Construct, id: string, props: GroupProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#aws-verifiedaccess-alpha.Group.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#aws-verifiedaccess-alpha.Group.Initializer.parameter.id">id</a></code> | <code>string</code> | Id of the Group. |
+| <code><a href="#aws-verifiedaccess-alpha.Group.Initializer.parameter.props">props</a></code> | <code><a href="#aws-verifiedaccess-alpha.GroupProps">GroupProps</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="aws-verifiedaccess-alpha.Group.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="aws-verifiedaccess-alpha.Group.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+Id of the Group.
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="aws-verifiedaccess-alpha.Group.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#aws-verifiedaccess-alpha.GroupProps">GroupProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#aws-verifiedaccess-alpha.Group.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#aws-verifiedaccess-alpha.Group.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+
+---
+
+##### `toString` <a name="toString" id="aws-verifiedaccess-alpha.Group.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="aws-verifiedaccess-alpha.Group.applyRemovalPolicy"></a>
+
+```typescript
+public applyRemovalPolicy(policy: RemovalPolicy): void
+```
+
+Apply the given removal policy to this resource.
+
+The Removal Policy controls what happens to this resource when it stops
+being managed by CloudFormation, either because you've removed it from the
+CDK application or because you've made a change that requires the resource
+to be replaced.
+
+The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+
+###### `policy`<sup>Required</sup> <a name="policy" id="aws-verifiedaccess-alpha.Group.applyRemovalPolicy.parameter.policy"></a>
+
+- *Type:* aws-cdk-lib.RemovalPolicy
+
+---
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#aws-verifiedaccess-alpha.Group.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#aws-verifiedaccess-alpha.Group.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#aws-verifiedaccess-alpha.Group.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+
+---
+
+##### ~~`isConstruct`~~ <a name="isConstruct" id="aws-verifiedaccess-alpha.Group.isConstruct"></a>
+
+```typescript
+import { Group } from 'aws-verifiedaccess-alpha'
+
+Group.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+###### `x`<sup>Required</sup> <a name="x" id="aws-verifiedaccess-alpha.Group.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+##### `isOwnedResource` <a name="isOwnedResource" id="aws-verifiedaccess-alpha.Group.isOwnedResource"></a>
+
+```typescript
+import { Group } from 'aws-verifiedaccess-alpha'
+
+Group.isOwnedResource(construct: IConstruct)
+```
+
+Returns true if the construct was created by CDK, and false otherwise.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="aws-verifiedaccess-alpha.Group.isOwnedResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+##### `isResource` <a name="isResource" id="aws-verifiedaccess-alpha.Group.isResource"></a>
+
+```typescript
+import { Group } from 'aws-verifiedaccess-alpha'
+
+Group.isResource(construct: IConstruct)
+```
+
+Check whether the given construct is a Resource.
+
+###### `construct`<sup>Required</sup> <a name="construct" id="aws-verifiedaccess-alpha.Group.isResource.parameter.construct"></a>
+
+- *Type:* constructs.IConstruct
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#aws-verifiedaccess-alpha.Group.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#aws-verifiedaccess-alpha.Group.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#aws-verifiedaccess-alpha.Group.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#aws-verifiedaccess-alpha.Group.property.id">id</a></code> | <code>string</code> | The id of the TrustProvider. |
+| <code><a href="#aws-verifiedaccess-alpha.Group.property.name">name</a></code> | <code>string</code> | The policy ReferenceName. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="aws-verifiedaccess-alpha.Group.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `env`<sup>Required</sup> <a name="env" id="aws-verifiedaccess-alpha.Group.property.env"></a>
+
+```typescript
+public readonly env: ResourceEnvironment;
+```
+
+- *Type:* aws-cdk-lib.ResourceEnvironment
+
+The environment this resource belongs to.
+
+For resources that are created and managed by the CDK
+(generally, those created by creating new class instances like Role, Bucket, etc.),
+this is always the same as the environment of the stack they belong to;
+however, for imported resources
+(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
+that might be different than the stack they were imported into.
+
+---
+
+##### `stack`<sup>Required</sup> <a name="stack" id="aws-verifiedaccess-alpha.Group.property.stack"></a>
+
+```typescript
+public readonly stack: Stack;
+```
+
+- *Type:* aws-cdk-lib.Stack
+
+The stack in which this resource is defined.
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="aws-verifiedaccess-alpha.Group.property.id"></a>
+
+```typescript
+public readonly id: string;
+```
+
+- *Type:* string
+
+The id of the TrustProvider.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="aws-verifiedaccess-alpha.Group.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+The policy ReferenceName.
+
+---
+
+
 ### TrustProvider <a name="TrustProvider" id="aws-verifiedaccess-alpha.TrustProvider"></a>
 
 - *Implements:* <a href="#aws-verifiedaccess-alpha.ITrustProvider">ITrustProvider</a>
@@ -1490,6 +1711,63 @@ public readonly tenantId: string;
 ```
 
 - *Type:* string
+
+---
+
+### GroupProps <a name="GroupProps" id="aws-verifiedaccess-alpha.GroupProps"></a>
+
+#### Initializer <a name="Initializer" id="aws-verifiedaccess-alpha.GroupProps.Initializer"></a>
+
+```typescript
+import { GroupProps } from 'aws-verifiedaccess-alpha'
+
+const groupProps: GroupProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#aws-verifiedaccess-alpha.GroupProps.property.identityStoreId">identityStoreId</a></code> | <code>string</code> | The globally unique identifier for the identity store. |
+| <code><a href="#aws-verifiedaccess-alpha.GroupProps.property.name">name</a></code> | <code>string</code> | A string containing the name of the group. |
+| <code><a href="#aws-verifiedaccess-alpha.GroupProps.property.description">description</a></code> | <code>string</code> | the description of the group. |
+
+---
+
+##### `identityStoreId`<sup>Required</sup> <a name="identityStoreId" id="aws-verifiedaccess-alpha.GroupProps.property.identityStoreId"></a>
+
+```typescript
+public readonly identityStoreId: string;
+```
+
+- *Type:* string
+
+The globally unique identifier for the identity store.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="aws-verifiedaccess-alpha.GroupProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+A string containing the name of the group.
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="aws-verifiedaccess-alpha.GroupProps.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+- *Default:* : no description
+
+the description of the group.
 
 ---
 
@@ -2423,6 +2701,44 @@ public readonly id: string;
 - *Type:* string
 
 acessId.
+
+---
+
+### IGroup <a name="IGroup" id="aws-verifiedaccess-alpha.IGroup"></a>
+
+- *Implemented By:* <a href="#aws-verifiedaccess-alpha.Group">Group</a>, <a href="#aws-verifiedaccess-alpha.IGroup">IGroup</a>
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#aws-verifiedaccess-alpha.IGroup.property.id">id</a></code> | <code>string</code> | Id of the Group. |
+| <code><a href="#aws-verifiedaccess-alpha.IGroup.property.name">name</a></code> | <code>string</code> | Name of the Group. |
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="aws-verifiedaccess-alpha.IGroup.property.id"></a>
+
+```typescript
+public readonly id: string;
+```
+
+- *Type:* string
+
+Id of the Group.
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="aws-verifiedaccess-alpha.IGroup.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+Name of the Group.
 
 ---
 
