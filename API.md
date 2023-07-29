@@ -1022,6 +1022,10 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 | <code><a href="#aws-verifiedaccess-alpha.TrustProvider.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 | <code><a href="#aws-verifiedaccess-alpha.TrustProvider.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
 | <code><a href="#aws-verifiedaccess-alpha.TrustProvider.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#aws-verifiedaccess-alpha.TrustProvider.crowdstrike">crowdstrike</a></code> | *No description.* |
+| <code><a href="#aws-verifiedaccess-alpha.TrustProvider.iamIdentityCenter">iamIdentityCenter</a></code> | *No description.* |
+| <code><a href="#aws-verifiedaccess-alpha.TrustProvider.jamf">jamf</a></code> | *No description.* |
+| <code><a href="#aws-verifiedaccess-alpha.TrustProvider.oidc">oidc</a></code> | *No description.* |
 
 ---
 
@@ -1075,6 +1079,110 @@ Check whether the given construct is a Resource.
 
 ---
 
+##### `crowdstrike` <a name="crowdstrike" id="aws-verifiedaccess-alpha.TrustProvider.crowdstrike"></a>
+
+```typescript
+import { TrustProvider } from 'aws-verifiedaccess-alpha'
+
+TrustProvider.crowdstrike(scope: Construct, id: string, props: DeviceTrustProviderProps)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="aws-verifiedaccess-alpha.TrustProvider.crowdstrike.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="aws-verifiedaccess-alpha.TrustProvider.crowdstrike.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="aws-verifiedaccess-alpha.TrustProvider.crowdstrike.parameter.props"></a>
+
+- *Type:* <a href="#aws-verifiedaccess-alpha.DeviceTrustProviderProps">DeviceTrustProviderProps</a>
+
+---
+
+##### `iamIdentityCenter` <a name="iamIdentityCenter" id="aws-verifiedaccess-alpha.TrustProvider.iamIdentityCenter"></a>
+
+```typescript
+import { TrustProvider } from 'aws-verifiedaccess-alpha'
+
+TrustProvider.iamIdentityCenter(scope: Construct, id: string, props: IamIdentityTrustProps)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="aws-verifiedaccess-alpha.TrustProvider.iamIdentityCenter.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="aws-verifiedaccess-alpha.TrustProvider.iamIdentityCenter.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="aws-verifiedaccess-alpha.TrustProvider.iamIdentityCenter.parameter.props"></a>
+
+- *Type:* <a href="#aws-verifiedaccess-alpha.IamIdentityTrustProps">IamIdentityTrustProps</a>
+
+---
+
+##### `jamf` <a name="jamf" id="aws-verifiedaccess-alpha.TrustProvider.jamf"></a>
+
+```typescript
+import { TrustProvider } from 'aws-verifiedaccess-alpha'
+
+TrustProvider.jamf(scope: Construct, id: string, props: DeviceTrustProviderProps)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="aws-verifiedaccess-alpha.TrustProvider.jamf.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="aws-verifiedaccess-alpha.TrustProvider.jamf.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="aws-verifiedaccess-alpha.TrustProvider.jamf.parameter.props"></a>
+
+- *Type:* <a href="#aws-verifiedaccess-alpha.DeviceTrustProviderProps">DeviceTrustProviderProps</a>
+
+---
+
+##### `oidc` <a name="oidc" id="aws-verifiedaccess-alpha.TrustProvider.oidc"></a>
+
+```typescript
+import { TrustProvider } from 'aws-verifiedaccess-alpha'
+
+TrustProvider.oidc(scope: Construct, id: string, props: OidcTrustProps)
+```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="aws-verifiedaccess-alpha.TrustProvider.oidc.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+###### `id`<sup>Required</sup> <a name="id" id="aws-verifiedaccess-alpha.TrustProvider.oidc.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `props`<sup>Required</sup> <a name="props" id="aws-verifiedaccess-alpha.TrustProvider.oidc.parameter.props"></a>
+
+- *Type:* <a href="#aws-verifiedaccess-alpha.OidcTrustProps">OidcTrustProps</a>
+
+---
+
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
@@ -1084,7 +1192,7 @@ Check whether the given construct is a Resource.
 | <code><a href="#aws-verifiedaccess-alpha.TrustProvider.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#aws-verifiedaccess-alpha.TrustProvider.property.id">id</a></code> | <code>string</code> | The id of the TrustProvider. |
 | <code><a href="#aws-verifiedaccess-alpha.TrustProvider.property.policyReferenceName">policyReferenceName</a></code> | <code>string</code> | The policy ReferenceName. |
-| <code><a href="#aws-verifiedaccess-alpha.TrustProvider.property.trustProviderType">trustProviderType</a></code> | <code><a href="#aws-verifiedaccess-alpha.TrustProviderType">TrustProviderType</a></code> | The TrustProverType. |
+| <code><a href="#aws-verifiedaccess-alpha.TrustProvider.property.type">type</a></code> | <code><a href="#aws-verifiedaccess-alpha.TrustProviderType">TrustProviderType</a></code> | The TrustProviderType. |
 
 ---
 
@@ -1155,15 +1263,15 @@ The policy ReferenceName.
 
 ---
 
-##### `trustProviderType`<sup>Required</sup> <a name="trustProviderType" id="aws-verifiedaccess-alpha.TrustProvider.property.trustProviderType"></a>
+##### `type`<sup>Required</sup> <a name="type" id="aws-verifiedaccess-alpha.TrustProvider.property.type"></a>
 
 ```typescript
-public readonly trustProviderType: TrustProviderType;
+public readonly type: TrustProviderType;
 ```
 
 - *Type:* <a href="#aws-verifiedaccess-alpha.TrustProviderType">TrustProviderType</a>
 
-The TrustProverType.
+The TrustProviderType.
 
 ---
 
@@ -1700,7 +1808,7 @@ const deviceOptions: DeviceOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#aws-verifiedaccess-alpha.DeviceOptions.property.tenantId">tenantId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#aws-verifiedaccess-alpha.DeviceOptions.property.tenantId">tenantId</a></code> | <code>string</code> | tennantId. |
 
 ---
 
@@ -1711,6 +1819,74 @@ public readonly tenantId: string;
 ```
 
 - *Type:* string
+
+tennantId.
+
+---
+
+### DeviceTrustProviderProps <a name="DeviceTrustProviderProps" id="aws-verifiedaccess-alpha.DeviceTrustProviderProps"></a>
+
+#### Initializer <a name="Initializer" id="aws-verifiedaccess-alpha.DeviceTrustProviderProps.Initializer"></a>
+
+```typescript
+import { DeviceTrustProviderProps } from 'aws-verifiedaccess-alpha'
+
+const deviceTrustProviderProps: DeviceTrustProviderProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#aws-verifiedaccess-alpha.DeviceTrustProviderProps.property.tenantId">tenantId</a></code> | <code>string</code> | tenantId. |
+| <code><a href="#aws-verifiedaccess-alpha.DeviceTrustProviderProps.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#aws-verifiedaccess-alpha.DeviceTrustProviderProps.property.policyReferenceName">policyReferenceName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#aws-verifiedaccess-alpha.DeviceTrustProviderProps.property.tags">tags</a></code> | <code>aws-cdk-lib.CfnTag[]</code> | *No description.* |
+
+---
+
+##### `tenantId`<sup>Required</sup> <a name="tenantId" id="aws-verifiedaccess-alpha.DeviceTrustProviderProps.property.tenantId"></a>
+
+```typescript
+public readonly tenantId: string;
+```
+
+- *Type:* string
+
+tenantId.
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="aws-verifiedaccess-alpha.DeviceTrustProviderProps.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+- *Default:* No description
+
+---
+
+##### `policyReferenceName`<sup>Optional</sup> <a name="policyReferenceName" id="aws-verifiedaccess-alpha.DeviceTrustProviderProps.property.policyReferenceName"></a>
+
+```typescript
+public readonly policyReferenceName: string;
+```
+
+- *Type:* string
+- *Default:* Will default to jamf or crwd
+
+---
+
+##### `tags`<sup>Optional</sup> <a name="tags" id="aws-verifiedaccess-alpha.DeviceTrustProviderProps.property.tags"></a>
+
+```typescript
+public readonly tags: CfnTag[];
+```
+
+- *Type:* aws-cdk-lib.CfnTag[]
+- *Default:* No tags
 
 ---
 
@@ -1728,21 +1904,8 @@ const groupProps: GroupProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#aws-verifiedaccess-alpha.GroupProps.property.identityStoreId">identityStoreId</a></code> | <code>string</code> | The globally unique identifier for the identity store. |
 | <code><a href="#aws-verifiedaccess-alpha.GroupProps.property.name">name</a></code> | <code>string</code> | A string containing the name of the group. |
 | <code><a href="#aws-verifiedaccess-alpha.GroupProps.property.description">description</a></code> | <code>string</code> | the description of the group. |
-
----
-
-##### `identityStoreId`<sup>Required</sup> <a name="identityStoreId" id="aws-verifiedaccess-alpha.GroupProps.property.identityStoreId"></a>
-
-```typescript
-public readonly identityStoreId: string;
-```
-
-- *Type:* string
-
-The globally unique identifier for the identity store.
 
 ---
 
@@ -1768,6 +1931,59 @@ public readonly description: string;
 - *Default:* : no description
 
 the description of the group.
+
+---
+
+### IamIdentityTrustProps <a name="IamIdentityTrustProps" id="aws-verifiedaccess-alpha.IamIdentityTrustProps"></a>
+
+#### Initializer <a name="Initializer" id="aws-verifiedaccess-alpha.IamIdentityTrustProps.Initializer"></a>
+
+```typescript
+import { IamIdentityTrustProps } from 'aws-verifiedaccess-alpha'
+
+const iamIdentityTrustProps: IamIdentityTrustProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#aws-verifiedaccess-alpha.IamIdentityTrustProps.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#aws-verifiedaccess-alpha.IamIdentityTrustProps.property.policyReferenceName">policyReferenceName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#aws-verifiedaccess-alpha.IamIdentityTrustProps.property.tags">tags</a></code> | <code>aws-cdk-lib.CfnTag[]</code> | *No description.* |
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="aws-verifiedaccess-alpha.IamIdentityTrustProps.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+- *Default:* No description
+
+---
+
+##### `policyReferenceName`<sup>Optional</sup> <a name="policyReferenceName" id="aws-verifiedaccess-alpha.IamIdentityTrustProps.property.policyReferenceName"></a>
+
+```typescript
+public readonly policyReferenceName: string;
+```
+
+- *Type:* string
+- *Default:* iamIdentity
+
+---
+
+##### `tags`<sup>Optional</sup> <a name="tags" id="aws-verifiedaccess-alpha.IamIdentityTrustProps.property.tags"></a>
+
+```typescript
+public readonly tags: CfnTag[];
+```
+
+- *Type:* aws-cdk-lib.CfnTag[]
+- *Default:* No tags
 
 ---
 
@@ -2148,6 +2364,72 @@ public readonly userInfoEndpoint: string;
 - *Default:* : none
 
 tuser InfoEnpoint.
+
+---
+
+### OidcTrustProps <a name="OidcTrustProps" id="aws-verifiedaccess-alpha.OidcTrustProps"></a>
+
+#### Initializer <a name="Initializer" id="aws-verifiedaccess-alpha.OidcTrustProps.Initializer"></a>
+
+```typescript
+import { OidcTrustProps } from 'aws-verifiedaccess-alpha'
+
+const oidcTrustProps: OidcTrustProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#aws-verifiedaccess-alpha.OidcTrustProps.property.oidcOptions">oidcOptions</a></code> | <code><a href="#aws-verifiedaccess-alpha.OIDCOptions">OIDCOptions</a></code> | oidc options. |
+| <code><a href="#aws-verifiedaccess-alpha.OidcTrustProps.property.policyReferenceName">policyReferenceName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#aws-verifiedaccess-alpha.OidcTrustProps.property.description">description</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#aws-verifiedaccess-alpha.OidcTrustProps.property.tags">tags</a></code> | <code>aws-cdk-lib.CfnTag[]</code> | *No description.* |
+
+---
+
+##### `oidcOptions`<sup>Required</sup> <a name="oidcOptions" id="aws-verifiedaccess-alpha.OidcTrustProps.property.oidcOptions"></a>
+
+```typescript
+public readonly oidcOptions: OIDCOptions;
+```
+
+- *Type:* <a href="#aws-verifiedaccess-alpha.OIDCOptions">OIDCOptions</a>
+
+oidc options.
+
+---
+
+##### `policyReferenceName`<sup>Required</sup> <a name="policyReferenceName" id="aws-verifiedaccess-alpha.OidcTrustProps.property.policyReferenceName"></a>
+
+```typescript
+public readonly policyReferenceName: string;
+```
+
+- *Type:* string
+- *Default:* policyReferenceName. not defaulting as it is not possible to know what this might be pointing at
+
+---
+
+##### `description`<sup>Optional</sup> <a name="description" id="aws-verifiedaccess-alpha.OidcTrustProps.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
+
+- *Type:* string
+- *Default:* No description
+
+---
+
+##### `tags`<sup>Optional</sup> <a name="tags" id="aws-verifiedaccess-alpha.OidcTrustProps.property.tags"></a>
+
+```typescript
+public readonly tags: CfnTag[];
+```
+
+- *Type:* aws-cdk-lib.CfnTag[]
+- *Default:* No tags
 
 ---
 
@@ -2744,8 +3026,6 @@ Name of the Group.
 
 ### ITrustProvider <a name="ITrustProvider" id="aws-verifiedaccess-alpha.ITrustProvider"></a>
 
-- *Extends:* aws-cdk-lib.IResource
-
 - *Implemented By:* <a href="#aws-verifiedaccess-alpha.TrustProvider">TrustProvider</a>, <a href="#aws-verifiedaccess-alpha.ITrustProvider">ITrustProvider</a>
 
 Create a vpc lattice service network.
@@ -2757,61 +3037,9 @@ Implemented by `ServiceNetwork`.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#aws-verifiedaccess-alpha.ITrustProvider.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#aws-verifiedaccess-alpha.ITrustProvider.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
-| <code><a href="#aws-verifiedaccess-alpha.ITrustProvider.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 | <code><a href="#aws-verifiedaccess-alpha.ITrustProvider.property.id">id</a></code> | <code>string</code> | The Id of the Trust Provider. |
-| <code><a href="#aws-verifiedaccess-alpha.ITrustProvider.property.policyReferenceName">policyReferenceName</a></code> | <code>string</code> | Policy Reference Name. |
-| <code><a href="#aws-verifiedaccess-alpha.ITrustProvider.property.trustProviderType">trustProviderType</a></code> | <code><a href="#aws-verifiedaccess-alpha.TrustProviderType">TrustProviderType</a></code> | Trust Provider Type. |
-| <code><a href="#aws-verifiedaccess-alpha.ITrustProvider.property.description">description</a></code> | <code>string</code> | decription. |
-| <code><a href="#aws-verifiedaccess-alpha.ITrustProvider.property.deviceOptions">deviceOptions</a></code> | <code><a href="#aws-verifiedaccess-alpha.DeviceOptions">DeviceOptions</a></code> | Device Options. |
-| <code><a href="#aws-verifiedaccess-alpha.ITrustProvider.property.deviceTrustProviderType">deviceTrustProviderType</a></code> | <code><a href="#aws-verifiedaccess-alpha.DeviceTrustProviderType">DeviceTrustProviderType</a></code> | Device Trust Proivder Type. |
-| <code><a href="#aws-verifiedaccess-alpha.ITrustProvider.property.oidcOptions">oidcOptions</a></code> | <code><a href="#aws-verifiedaccess-alpha.OIDCOptions">OIDCOptions</a></code> | oidc optons. |
-| <code><a href="#aws-verifiedaccess-alpha.ITrustProvider.property.tags">tags</a></code> | <code>aws-cdk-lib.Tag[]</code> | tags. |
-| <code><a href="#aws-verifiedaccess-alpha.ITrustProvider.property.userTrustProviderType">userTrustProviderType</a></code> | <code><a href="#aws-verifiedaccess-alpha.UserTrustProviderType">UserTrustProviderType</a></code> | User Provider Type. |
-
----
-
-##### `node`<sup>Required</sup> <a name="node" id="aws-verifiedaccess-alpha.ITrustProvider.property.node"></a>
-
-```typescript
-public readonly node: Node;
-```
-
-- *Type:* constructs.Node
-
-The tree node.
-
----
-
-##### `env`<sup>Required</sup> <a name="env" id="aws-verifiedaccess-alpha.ITrustProvider.property.env"></a>
-
-```typescript
-public readonly env: ResourceEnvironment;
-```
-
-- *Type:* aws-cdk-lib.ResourceEnvironment
-
-The environment this resource belongs to.
-
-For resources that are created and managed by the CDK
-(generally, those created by creating new class instances like Role, Bucket, etc.),
-this is always the same as the environment of the stack they belong to;
-however, for imported resources
-(those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-that might be different than the stack they were imported into.
-
----
-
-##### `stack`<sup>Required</sup> <a name="stack" id="aws-verifiedaccess-alpha.ITrustProvider.property.stack"></a>
-
-```typescript
-public readonly stack: Stack;
-```
-
-- *Type:* aws-cdk-lib.Stack
-
-The stack in which this resource is defined.
+| <code><a href="#aws-verifiedaccess-alpha.ITrustProvider.property.policyReferenceName">policyReferenceName</a></code> | <code>string</code> | PolicyreferenceName. |
+| <code><a href="#aws-verifiedaccess-alpha.ITrustProvider.property.type">type</a></code> | <code><a href="#aws-verifiedaccess-alpha.TrustProviderType">TrustProviderType</a></code> | The type of the Trust Provider. |
 
 ---
 
@@ -2835,91 +3063,19 @@ public readonly policyReferenceName: string;
 
 - *Type:* string
 
-Policy Reference Name.
+PolicyreferenceName.
 
 ---
 
-##### `trustProviderType`<sup>Required</sup> <a name="trustProviderType" id="aws-verifiedaccess-alpha.ITrustProvider.property.trustProviderType"></a>
+##### `type`<sup>Required</sup> <a name="type" id="aws-verifiedaccess-alpha.ITrustProvider.property.type"></a>
 
 ```typescript
-public readonly trustProviderType: TrustProviderType;
+public readonly type: TrustProviderType;
 ```
 
 - *Type:* <a href="#aws-verifiedaccess-alpha.TrustProviderType">TrustProviderType</a>
 
-Trust Provider Type.
-
----
-
-##### `description`<sup>Optional</sup> <a name="description" id="aws-verifiedaccess-alpha.ITrustProvider.property.description"></a>
-
-```typescript
-public readonly description: string;
-```
-
-- *Type:* string
-
-decription.
-
----
-
-##### `deviceOptions`<sup>Optional</sup> <a name="deviceOptions" id="aws-verifiedaccess-alpha.ITrustProvider.property.deviceOptions"></a>
-
-```typescript
-public readonly deviceOptions: DeviceOptions;
-```
-
-- *Type:* <a href="#aws-verifiedaccess-alpha.DeviceOptions">DeviceOptions</a>
-
-Device Options.
-
----
-
-##### `deviceTrustProviderType`<sup>Optional</sup> <a name="deviceTrustProviderType" id="aws-verifiedaccess-alpha.ITrustProvider.property.deviceTrustProviderType"></a>
-
-```typescript
-public readonly deviceTrustProviderType: DeviceTrustProviderType;
-```
-
-- *Type:* <a href="#aws-verifiedaccess-alpha.DeviceTrustProviderType">DeviceTrustProviderType</a>
-
-Device Trust Proivder Type.
-
----
-
-##### `oidcOptions`<sup>Optional</sup> <a name="oidcOptions" id="aws-verifiedaccess-alpha.ITrustProvider.property.oidcOptions"></a>
-
-```typescript
-public readonly oidcOptions: OIDCOptions;
-```
-
-- *Type:* <a href="#aws-verifiedaccess-alpha.OIDCOptions">OIDCOptions</a>
-
-oidc optons.
-
----
-
-##### `tags`<sup>Optional</sup> <a name="tags" id="aws-verifiedaccess-alpha.ITrustProvider.property.tags"></a>
-
-```typescript
-public readonly tags: Tag[];
-```
-
-- *Type:* aws-cdk-lib.Tag[]
-
-tags.
-
----
-
-##### `userTrustProviderType`<sup>Optional</sup> <a name="userTrustProviderType" id="aws-verifiedaccess-alpha.ITrustProvider.property.userTrustProviderType"></a>
-
-```typescript
-public readonly userTrustProviderType: UserTrustProviderType;
-```
-
-- *Type:* <a href="#aws-verifiedaccess-alpha.UserTrustProviderType">UserTrustProviderType</a>
-
-User Provider Type.
+The type of the Trust Provider.
 
 ---
 
@@ -3034,7 +3190,7 @@ Trust provider Type.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#aws-verifiedaccess-alpha.TrustProviderType.USER">USER</a></code> | USER. |
-| <code><a href="#aws-verifiedaccess-alpha.TrustProviderType.DEVICE">DEVICE</a></code> | *No description.* |
+| <code><a href="#aws-verifiedaccess-alpha.TrustProviderType.DEVICE">DEVICE</a></code> | DEvice. |
 
 ---
 
@@ -3046,6 +3202,8 @@ USER.
 
 
 ##### `DEVICE` <a name="DEVICE" id="aws-verifiedaccess-alpha.TrustProviderType.DEVICE"></a>
+
+DEvice.
 
 ---
 

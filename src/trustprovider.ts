@@ -43,6 +43,9 @@ export enum TrustProviderType {
    * USER
    */
   USER = 'user',
+  /**
+   * DEvice
+   */
   DEVICE = 'device'
 };
 
@@ -50,8 +53,12 @@ export enum TrustProviderType {
  * DeviceOptions
  */
 export interface DeviceOptions {
+  /**
+   * tennantId
+   */
   readonly tenantId: string;
 };
+
 /**
  * OIDC Options
  */
@@ -88,51 +95,24 @@ export interface OIDCOptions {
   readonly userInfoEndpoint?: string | undefined;
 }
 
-export interface ITrustProvider {
-  /**
-   * Policy Reference Name
-   */
-  readonly policyReferenceName: string;
-  /**
-   * Trust Provider Type
-   */
-  readonly trustProviderType: TrustProviderType;
-  /**
-   * User Provider Type
-   */
-  readonly userTrustProviderType?: UserTrustProviderType | undefined ;
-  /**
-   * decription
-   */
-  readonly description?: string | undefined;
-  /**
-   * Device Trust Proivder Type
-   */
-  readonly deviceTrustProviderType?: DeviceTrustProviderType | undefined;
-  /**
-   * Device Options
-   */
-  readonly deviceOptions?: DeviceOptions | undefined;
-  /**
-   * oidc optons
-   */
-  readonly oidcOptions?: OIDCOptions | undefined;
-  /**
-   * tags
-   */
-  readonly tags?: core.Tag[] | undefined;
-}
-
 /**
  * Create a vpc lattice service network.
  * Implemented by `ServiceNetwork`.
  */
-export interface ITrustProvider extends core.IResource {
+export interface ITrustProvider {
 
   /**
   * The Id of the Trust Provider.
   */
   readonly id: string;
+  /**
+   * The type of the Trust Provider
+   */
+  readonly type: TrustProviderType;
+  /**
+   * PolicyreferenceName
+   */
+  readonly policyReferenceName: string;
 }
 
 /**
@@ -175,10 +155,142 @@ export interface TrustProviderProps {
   readonly tags?: core.Tag[] | undefined;
 }
 
+export interface DeviceTrustProviderProps {
+  /**
+   * tenantId
+   */
+  readonly tenantId: string | string;
+  /**
+   * @default - Will default to jamf or crwd
+   */
+  readonly policyReferenceName?: string | undefined;
+  /**
+   * @default - No description
+   */
+  readonly description?: string | undefined;
+  /**
+   * @default No tags
+   */
+  readonly tags?: core.CfnTag[] | undefined;
+}
+
+export interface IamIdentityTrustProps {
+  /**
+   * @default - iamIdentity
+   */
+  readonly policyReferenceName?: string | undefined;
+  /**
+   * @default - No description
+   */
+  readonly description?: string | undefined;
+  /**
+   * @default No tags
+   */
+  readonly tags?: core.CfnTag[] | undefined;
+}
+
+
+export interface OidcTrustProps {
+  /**
+   * @default - policyReferenceName. not defaulting as it is not possible to know what this might be pointing at
+   */
+  readonly policyReferenceName: string;
+  /**
+   * @default - No description
+   */
+  readonly description?: string | undefined;
+  /**
+   * @default No tags
+   */
+  readonly tags?: core.CfnTag[] | undefined;
+  /**
+   * oidc options
+   */
+  readonly oidcOptions: OIDCOptions;
+
+}
+
 /**
  * Creates a Trust Provider
  */
 export class TrustProvider extends core.Resource implements ITrustProvider {
+
+
+  public static jamf(scope: constructs.Construct, id: string, props: DeviceTrustProviderProps): ITrustProvider {
+
+    const provider = new ec2.CfnVerifiedAccessTrustProvider(scope, id, {
+      policyReferenceName: props.policyReferenceName ?? 'jamf',
+      trustProviderType: 'device',
+      description: props.description,
+      deviceOptions: {
+        tenantId: props.tenantId,
+      },
+      deviceTrustProviderType: 'jamf',
+      tags: props.tags,
+    });
+
+    return {
+      id: provider.attrVerifiedAccessTrustProviderId,
+      policyReferenceName: provider.policyReferenceName,
+      type: TrustProviderType.DEVICE,
+    };
+  };
+
+  public static crowdstrike(scope: constructs.Construct, id: string, props: DeviceTrustProviderProps): ITrustProvider {
+
+    const provider = new ec2.CfnVerifiedAccessTrustProvider(scope, id, {
+      policyReferenceName: props.policyReferenceName ?? 'crwd',
+      trustProviderType: TrustProviderType.DEVICE,
+      description: props.description,
+      deviceOptions: {
+        tenantId: props.tenantId,
+      },
+      deviceTrustProviderType: 'crowdstrike',
+      tags: props.tags,
+    });
+
+    return {
+      id: provider.attrVerifiedAccessTrustProviderId,
+      policyReferenceName: provider.policyReferenceName,
+      type: TrustProviderType.DEVICE,
+    };
+  };
+
+  public static iamIdentityCenter(scope: constructs.Construct, id: string, props: IamIdentityTrustProps): ITrustProvider {
+
+    const provider = new ec2.CfnVerifiedAccessTrustProvider(scope, id, {
+      policyReferenceName: props.policyReferenceName ?? 'iamIdentity',
+      trustProviderType: TrustProviderType.USER,
+      description: props.description,
+      userTrustProviderType: UserTrustProviderType.IAM_IDENTITY_CENTER,
+      tags: props.tags,
+    });
+
+    return {
+      id: provider.attrVerifiedAccessTrustProviderId,
+      policyReferenceName: provider.policyReferenceName,
+      type: TrustProviderType.USER,
+    };
+  }
+
+  public static oidc(scope: constructs.Construct, id: string, props: OidcTrustProps): ITrustProvider {
+
+    const provider = new ec2.CfnVerifiedAccessTrustProvider(scope, id, {
+      policyReferenceName: props.policyReferenceName,
+      trustProviderType: TrustProviderType.USER,
+      description: props.description,
+      userTrustProviderType: UserTrustProviderType.OIDC,
+      tags: props.tags,
+      oidcOptions: props.oidcOptions,
+    });
+
+    return {
+      id: provider.attrVerifiedAccessTrustProviderId,
+      policyReferenceName: provider.policyReferenceName,
+      type: TrustProviderType.USER,
+    };
+  }
+
 
   /**
    * The id of the TrustProvider
@@ -190,9 +302,9 @@ export class TrustProvider extends core.Resource implements ITrustProvider {
   readonly policyReferenceName: string;
 
   /**
-   * The TrustProverType
+   * The TrustProviderType
    */
-  readonly trustProviderType: TrustProviderType;
+  readonly type: TrustProviderType;
 
   constructor(scope: constructs.Construct, id: string, props: TrustProviderProps) {
     super(scope, id);
@@ -208,14 +320,14 @@ export class TrustProvider extends core.Resource implements ITrustProvider {
 
 
     if (props.deviceTrustProviderType) {
-      this.trustProviderType = TrustProviderType.DEVICE;
+      this.type = TrustProviderType.DEVICE;
     } else {
-      this.trustProviderType = TrustProviderType.USER;
+      this.type = TrustProviderType.USER;
     }
 
     const cfnVerifiedAccessTrustProvider = new ec2.CfnVerifiedAccessTrustProvider(this, 'Resource', {
       policyReferenceName: props.policyReferenceName,
-      trustProviderType: this.trustProviderType,
+      trustProviderType: this.type,
 
       // the properties below are optional
       description: props.description,
