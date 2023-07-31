@@ -2,6 +2,7 @@ import * as core from 'aws-cdk-lib';
 
 import * as constructs from 'constructs';
 import * as va from './index';
+import { iamIdentityCenter } from './index';
 
 
 export interface DeviceTrusts {
@@ -12,7 +13,7 @@ export interface DeviceTrusts {
 
 export interface UserTrusts {
   readonly userTrustProvider: va.ITrustProvider;
-  readonly identityGroups?: va.IGroup[] | undefined; // used for an Identity Center Trust
+  readonly identityGroups?: iamIdentityCenter.IGroup[] | undefined; // used for an Identity Center Trust
   readonly verifiedEmail?: VerifiedEmail | undefined; // used for an Indentity Center Trust
   readonly conditions?: string[]; // used for okta conditions.
 }
