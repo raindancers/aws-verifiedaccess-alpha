@@ -22,6 +22,17 @@ export enum DeviceTrustProviderType {
    */
   CROWDSTRIKE = 'crowdstrike'
 }
+
+/**
+ * JamF Risks
+ */
+export enum JamfRisk {
+  HIGH = 'HIGH',
+  MEDIUM = 'MEDIUM',
+  LOW = 'LOW',
+  SECURE = 'SECURE',
+  NOT_APPLICABLE = 'NOT_APPLICABLE'
+}
 /**
  * User Trust Provider Types
  */
@@ -113,6 +124,10 @@ export interface ITrustProvider {
    * PolicyreferenceName
    */
   readonly policyReferenceName: string;
+  /**
+   * User Trust Type
+   */
+  readonly userTrustType?: UserTrustProviderType | undefined;
 }
 
 /**
@@ -270,6 +285,7 @@ export class TrustProvider extends core.Resource implements ITrustProvider {
       id: provider.attrVerifiedAccessTrustProviderId,
       policyReferenceName: provider.policyReferenceName,
       type: TrustProviderType.USER,
+      userTrustType: UserTrustProviderType.IAM_IDENTITY_CENTER,
     };
   }
 
@@ -288,6 +304,7 @@ export class TrustProvider extends core.Resource implements ITrustProvider {
       id: provider.attrVerifiedAccessTrustProviderId,
       policyReferenceName: provider.policyReferenceName,
       type: TrustProviderType.USER,
+      userTrustType: UserTrustProviderType.OIDC,
     };
   }
 

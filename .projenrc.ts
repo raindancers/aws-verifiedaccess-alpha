@@ -14,9 +14,13 @@ const project = new awscdk.AwsCdkConstructLibrary({
     module: 'aws-verifiedaccess-alpha',
   },
 
-  // deps: [],                /* Runtime dependencies of this module. */
+  deps: [
+    '@aws-cdk/integ-tests-alpha',
+  ], /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  // devDeps: [],             /* Build dependencies for this module. */
+  devDeps: [
+    '@aws-cdk/integ-tests-alpha',
+  ],             /* Build dependencies for this module. */
   // packageName: undefined,  /* The "name" in package.json. */
 });
 

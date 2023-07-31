@@ -713,45 +713,43 @@ acessId.
 ---
 
 
-### Group <a name="Group" id="aws-verifiedaccess-alpha.Group"></a>
+### AvaPolicy <a name="AvaPolicy" id="aws-verifiedaccess-alpha.AvaPolicy"></a>
 
-- *Implements:* <a href="#aws-verifiedaccess-alpha.IGroup">IGroup</a>
+- *Implements:* <a href="#aws-verifiedaccess-alpha.IAvaPolicy">IAvaPolicy</a>
 
 Creates Identity Store Group.
 
-#### Initializers <a name="Initializers" id="aws-verifiedaccess-alpha.Group.Initializer"></a>
+#### Initializers <a name="Initializers" id="aws-verifiedaccess-alpha.AvaPolicy.Initializer"></a>
 
 ```typescript
-import { Group } from 'aws-verifiedaccess-alpha'
+import { AvaPolicy } from 'aws-verifiedaccess-alpha'
 
-new Group(scope: Construct, id: string, props: GroupProps)
+new AvaPolicy(scope: Construct, id: string, props: AvaPolicyProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#aws-verifiedaccess-alpha.Group.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#aws-verifiedaccess-alpha.Group.Initializer.parameter.id">id</a></code> | <code>string</code> | Id of the Group. |
-| <code><a href="#aws-verifiedaccess-alpha.Group.Initializer.parameter.props">props</a></code> | <code><a href="#aws-verifiedaccess-alpha.GroupProps">GroupProps</a></code> | *No description.* |
+| <code><a href="#aws-verifiedaccess-alpha.AvaPolicy.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#aws-verifiedaccess-alpha.AvaPolicy.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#aws-verifiedaccess-alpha.AvaPolicy.Initializer.parameter.props">props</a></code> | <code><a href="#aws-verifiedaccess-alpha.AvaPolicyProps">AvaPolicyProps</a></code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="aws-verifiedaccess-alpha.Group.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="aws-verifiedaccess-alpha.AvaPolicy.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="aws-verifiedaccess-alpha.Group.Initializer.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="aws-verifiedaccess-alpha.AvaPolicy.Initializer.parameter.id"></a>
 
 - *Type:* string
 
-Id of the Group.
-
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="aws-verifiedaccess-alpha.Group.Initializer.parameter.props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="aws-verifiedaccess-alpha.AvaPolicy.Initializer.parameter.props"></a>
 
-- *Type:* <a href="#aws-verifiedaccess-alpha.GroupProps">GroupProps</a>
+- *Type:* <a href="#aws-verifiedaccess-alpha.AvaPolicyProps">AvaPolicyProps</a>
 
 ---
 
@@ -759,12 +757,12 @@ Id of the Group.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#aws-verifiedaccess-alpha.Group.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#aws-verifiedaccess-alpha.Group.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#aws-verifiedaccess-alpha.AvaPolicy.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#aws-verifiedaccess-alpha.AvaPolicy.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 
 ---
 
-##### `toString` <a name="toString" id="aws-verifiedaccess-alpha.Group.toString"></a>
+##### `toString` <a name="toString" id="aws-verifiedaccess-alpha.AvaPolicy.toString"></a>
 
 ```typescript
 public toString(): string
@@ -772,7 +770,7 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="aws-verifiedaccess-alpha.Group.applyRemovalPolicy"></a>
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="aws-verifiedaccess-alpha.AvaPolicy.applyRemovalPolicy"></a>
 
 ```typescript
 public applyRemovalPolicy(policy: RemovalPolicy): void
@@ -788,7 +786,7 @@ to be replaced.
 The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 
-###### `policy`<sup>Required</sup> <a name="policy" id="aws-verifiedaccess-alpha.Group.applyRemovalPolicy.parameter.policy"></a>
+###### `policy`<sup>Required</sup> <a name="policy" id="aws-verifiedaccess-alpha.AvaPolicy.applyRemovalPolicy.parameter.policy"></a>
 
 - *Type:* aws-cdk-lib.RemovalPolicy
 
@@ -798,23 +796,23 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#aws-verifiedaccess-alpha.Group.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#aws-verifiedaccess-alpha.Group.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
-| <code><a href="#aws-verifiedaccess-alpha.Group.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#aws-verifiedaccess-alpha.AvaPolicy.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#aws-verifiedaccess-alpha.AvaPolicy.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#aws-verifiedaccess-alpha.AvaPolicy.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="aws-verifiedaccess-alpha.Group.isConstruct"></a>
+##### ~~`isConstruct`~~ <a name="isConstruct" id="aws-verifiedaccess-alpha.AvaPolicy.isConstruct"></a>
 
 ```typescript
-import { Group } from 'aws-verifiedaccess-alpha'
+import { AvaPolicy } from 'aws-verifiedaccess-alpha'
 
-Group.isConstruct(x: any)
+AvaPolicy.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
 
-###### `x`<sup>Required</sup> <a name="x" id="aws-verifiedaccess-alpha.Group.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="aws-verifiedaccess-alpha.AvaPolicy.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -822,33 +820,33 @@ Any object.
 
 ---
 
-##### `isOwnedResource` <a name="isOwnedResource" id="aws-verifiedaccess-alpha.Group.isOwnedResource"></a>
+##### `isOwnedResource` <a name="isOwnedResource" id="aws-verifiedaccess-alpha.AvaPolicy.isOwnedResource"></a>
 
 ```typescript
-import { Group } from 'aws-verifiedaccess-alpha'
+import { AvaPolicy } from 'aws-verifiedaccess-alpha'
 
-Group.isOwnedResource(construct: IConstruct)
+AvaPolicy.isOwnedResource(construct: IConstruct)
 ```
 
 Returns true if the construct was created by CDK, and false otherwise.
 
-###### `construct`<sup>Required</sup> <a name="construct" id="aws-verifiedaccess-alpha.Group.isOwnedResource.parameter.construct"></a>
+###### `construct`<sup>Required</sup> <a name="construct" id="aws-verifiedaccess-alpha.AvaPolicy.isOwnedResource.parameter.construct"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `isResource` <a name="isResource" id="aws-verifiedaccess-alpha.Group.isResource"></a>
+##### `isResource` <a name="isResource" id="aws-verifiedaccess-alpha.AvaPolicy.isResource"></a>
 
 ```typescript
-import { Group } from 'aws-verifiedaccess-alpha'
+import { AvaPolicy } from 'aws-verifiedaccess-alpha'
 
-Group.isResource(construct: IConstruct)
+AvaPolicy.isResource(construct: IConstruct)
 ```
 
 Check whether the given construct is a Resource.
 
-###### `construct`<sup>Required</sup> <a name="construct" id="aws-verifiedaccess-alpha.Group.isResource.parameter.construct"></a>
+###### `construct`<sup>Required</sup> <a name="construct" id="aws-verifiedaccess-alpha.AvaPolicy.isResource.parameter.construct"></a>
 
 - *Type:* constructs.IConstruct
 
@@ -858,15 +856,14 @@ Check whether the given construct is a Resource.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#aws-verifiedaccess-alpha.Group.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#aws-verifiedaccess-alpha.Group.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
-| <code><a href="#aws-verifiedaccess-alpha.Group.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
-| <code><a href="#aws-verifiedaccess-alpha.Group.property.id">id</a></code> | <code>string</code> | The id of the TrustProvider. |
-| <code><a href="#aws-verifiedaccess-alpha.Group.property.name">name</a></code> | <code>string</code> | The policy ReferenceName. |
+| <code><a href="#aws-verifiedaccess-alpha.AvaPolicy.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#aws-verifiedaccess-alpha.AvaPolicy.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#aws-verifiedaccess-alpha.AvaPolicy.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#aws-verifiedaccess-alpha.AvaPolicy.property.policy">policy</a></code> | <code>string</code> | The policy string. |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="aws-verifiedaccess-alpha.Group.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="aws-verifiedaccess-alpha.AvaPolicy.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -878,7 +875,7 @@ The tree node.
 
 ---
 
-##### `env`<sup>Required</sup> <a name="env" id="aws-verifiedaccess-alpha.Group.property.env"></a>
+##### `env`<sup>Required</sup> <a name="env" id="aws-verifiedaccess-alpha.AvaPolicy.property.env"></a>
 
 ```typescript
 public readonly env: ResourceEnvironment;
@@ -897,7 +894,7 @@ that might be different than the stack they were imported into.
 
 ---
 
-##### `stack`<sup>Required</sup> <a name="stack" id="aws-verifiedaccess-alpha.Group.property.stack"></a>
+##### `stack`<sup>Required</sup> <a name="stack" id="aws-verifiedaccess-alpha.AvaPolicy.property.stack"></a>
 
 ```typescript
 public readonly stack: Stack;
@@ -909,27 +906,15 @@ The stack in which this resource is defined.
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="aws-verifiedaccess-alpha.Group.property.id"></a>
+##### `policy`<sup>Required</sup> <a name="policy" id="aws-verifiedaccess-alpha.AvaPolicy.property.policy"></a>
 
 ```typescript
-public readonly id: string;
+public readonly policy: string;
 ```
 
 - *Type:* string
 
-The id of the TrustProvider.
-
----
-
-##### `name`<sup>Required</sup> <a name="name" id="aws-verifiedaccess-alpha.Group.property.name"></a>
-
-```typescript
-public readonly name: string;
-```
-
-- *Type:* string
-
-The policy ReferenceName.
+The policy string.
 
 ---
 
@@ -1687,6 +1672,76 @@ wafAcl attached to the Access Instance.
 
 ---
 
+### AvaPolicyProps <a name="AvaPolicyProps" id="aws-verifiedaccess-alpha.AvaPolicyProps"></a>
+
+#### Initializer <a name="Initializer" id="aws-verifiedaccess-alpha.AvaPolicyProps.Initializer"></a>
+
+```typescript
+import { AvaPolicyProps } from 'aws-verifiedaccess-alpha'
+
+const avaPolicyProps: AvaPolicyProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#aws-verifiedaccess-alpha.AvaPolicyProps.property.userTrusts">userTrusts</a></code> | <code><a href="#aws-verifiedaccess-alpha.UserTrusts">UserTrusts</a>[]</code> | User Trust Provider:. |
+| <code><a href="#aws-verifiedaccess-alpha.AvaPolicyProps.property.allowIPranges">allowIPranges</a></code> | <code>string[]</code> | Restrict to specific Ip address ranges Consider using WAF. |
+| <code><a href="#aws-verifiedaccess-alpha.AvaPolicyProps.property.blockIPranges">blockIPranges</a></code> | <code>string[]</code> | Block IP ranges Consider using WAF. |
+| <code><a href="#aws-verifiedaccess-alpha.AvaPolicyProps.property.deviceTrusts">deviceTrusts</a></code> | <code><a href="#aws-verifiedaccess-alpha.DeviceTrusts">DeviceTrusts</a>[]</code> | DeviceTrusts:. |
+
+---
+
+##### `userTrusts`<sup>Required</sup> <a name="userTrusts" id="aws-verifiedaccess-alpha.AvaPolicyProps.property.userTrusts"></a>
+
+```typescript
+public readonly userTrusts: UserTrusts[];
+```
+
+- *Type:* <a href="#aws-verifiedaccess-alpha.UserTrusts">UserTrusts</a>[]
+
+User Trust Provider:.
+
+---
+
+##### `allowIPranges`<sup>Optional</sup> <a name="allowIPranges" id="aws-verifiedaccess-alpha.AvaPolicyProps.property.allowIPranges"></a>
+
+```typescript
+public readonly allowIPranges: string[];
+```
+
+- *Type:* string[]
+
+Restrict to specific Ip address ranges Consider using WAF.
+
+---
+
+##### `blockIPranges`<sup>Optional</sup> <a name="blockIPranges" id="aws-verifiedaccess-alpha.AvaPolicyProps.property.blockIPranges"></a>
+
+```typescript
+public readonly blockIPranges: string[];
+```
+
+- *Type:* string[]
+
+Block IP ranges Consider using WAF.
+
+---
+
+##### `deviceTrusts`<sup>Optional</sup> <a name="deviceTrusts" id="aws-verifiedaccess-alpha.AvaPolicyProps.property.deviceTrusts"></a>
+
+```typescript
+public readonly deviceTrusts: DeviceTrusts[];
+```
+
+- *Type:* <a href="#aws-verifiedaccess-alpha.DeviceTrusts">DeviceTrusts</a>[]
+- *Default:* none
+
+DeviceTrusts:.
+
+---
+
 ### CloudWatchLogProps <a name="CloudWatchLogProps" id="aws-verifiedaccess-alpha.CloudWatchLogProps"></a>
 
 CloudWatch Log Props.
@@ -1890,47 +1945,53 @@ public readonly tags: CfnTag[];
 
 ---
 
-### GroupProps <a name="GroupProps" id="aws-verifiedaccess-alpha.GroupProps"></a>
+### DeviceTrusts <a name="DeviceTrusts" id="aws-verifiedaccess-alpha.DeviceTrusts"></a>
 
-#### Initializer <a name="Initializer" id="aws-verifiedaccess-alpha.GroupProps.Initializer"></a>
+#### Initializer <a name="Initializer" id="aws-verifiedaccess-alpha.DeviceTrusts.Initializer"></a>
 
 ```typescript
-import { GroupProps } from 'aws-verifiedaccess-alpha'
+import { DeviceTrusts } from 'aws-verifiedaccess-alpha'
 
-const groupProps: GroupProps = { ... }
+const deviceTrusts: DeviceTrusts = { ... }
 ```
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#aws-verifiedaccess-alpha.GroupProps.property.name">name</a></code> | <code>string</code> | A string containing the name of the group. |
-| <code><a href="#aws-verifiedaccess-alpha.GroupProps.property.description">description</a></code> | <code>string</code> | the description of the group. |
+| <code><a href="#aws-verifiedaccess-alpha.DeviceTrusts.property.deviceTrustProvider">deviceTrustProvider</a></code> | <code><a href="#aws-verifiedaccess-alpha.ITrustProvider">ITrustProvider</a></code> | *No description.* |
+| <code><a href="#aws-verifiedaccess-alpha.DeviceTrusts.property.acceptedRisks">acceptedRisks</a></code> | <code><a href="#aws-verifiedaccess-alpha.JamfRisk">JamfRisk</a>[]</code> | *No description.* |
+| <code><a href="#aws-verifiedaccess-alpha.DeviceTrusts.property.minscore">minscore</a></code> | <code>number</code> | *No description.* |
 
 ---
 
-##### `name`<sup>Required</sup> <a name="name" id="aws-verifiedaccess-alpha.GroupProps.property.name"></a>
+##### `deviceTrustProvider`<sup>Required</sup> <a name="deviceTrustProvider" id="aws-verifiedaccess-alpha.DeviceTrusts.property.deviceTrustProvider"></a>
 
 ```typescript
-public readonly name: string;
+public readonly deviceTrustProvider: ITrustProvider;
 ```
 
-- *Type:* string
-
-A string containing the name of the group.
+- *Type:* <a href="#aws-verifiedaccess-alpha.ITrustProvider">ITrustProvider</a>
 
 ---
 
-##### `description`<sup>Optional</sup> <a name="description" id="aws-verifiedaccess-alpha.GroupProps.property.description"></a>
+##### `acceptedRisks`<sup>Optional</sup> <a name="acceptedRisks" id="aws-verifiedaccess-alpha.DeviceTrusts.property.acceptedRisks"></a>
 
 ```typescript
-public readonly description: string;
+public readonly acceptedRisks: JamfRisk[];
 ```
 
-- *Type:* string
-- *Default:* : no description
+- *Type:* <a href="#aws-verifiedaccess-alpha.JamfRisk">JamfRisk</a>[]
 
-the description of the group.
+---
+
+##### `minscore`<sup>Optional</sup> <a name="minscore" id="aws-verifiedaccess-alpha.DeviceTrusts.property.minscore"></a>
+
+```typescript
+public readonly minscore: number;
+```
+
+- *Type:* number
 
 ---
 
@@ -2679,6 +2740,67 @@ User Trust Provider Type.
 
 ---
 
+### UserTrusts <a name="UserTrusts" id="aws-verifiedaccess-alpha.UserTrusts"></a>
+
+#### Initializer <a name="Initializer" id="aws-verifiedaccess-alpha.UserTrusts.Initializer"></a>
+
+```typescript
+import { UserTrusts } from 'aws-verifiedaccess-alpha'
+
+const userTrusts: UserTrusts = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#aws-verifiedaccess-alpha.UserTrusts.property.userTrustProvider">userTrustProvider</a></code> | <code><a href="#aws-verifiedaccess-alpha.ITrustProvider">ITrustProvider</a></code> | *No description.* |
+| <code><a href="#aws-verifiedaccess-alpha.UserTrusts.property.conditions">conditions</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#aws-verifiedaccess-alpha.UserTrusts.property.identityGroups">identityGroups</a></code> | <code><a href="#aws-verifiedaccess-alpha.IGroup">IGroup</a>[]</code> | *No description.* |
+| <code><a href="#aws-verifiedaccess-alpha.UserTrusts.property.verifiedEmail">verifiedEmail</a></code> | <code><a href="#aws-verifiedaccess-alpha.VerifiedEmail">VerifiedEmail</a></code> | *No description.* |
+
+---
+
+##### `userTrustProvider`<sup>Required</sup> <a name="userTrustProvider" id="aws-verifiedaccess-alpha.UserTrusts.property.userTrustProvider"></a>
+
+```typescript
+public readonly userTrustProvider: ITrustProvider;
+```
+
+- *Type:* <a href="#aws-verifiedaccess-alpha.ITrustProvider">ITrustProvider</a>
+
+---
+
+##### `conditions`<sup>Optional</sup> <a name="conditions" id="aws-verifiedaccess-alpha.UserTrusts.property.conditions"></a>
+
+```typescript
+public readonly conditions: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `identityGroups`<sup>Optional</sup> <a name="identityGroups" id="aws-verifiedaccess-alpha.UserTrusts.property.identityGroups"></a>
+
+```typescript
+public readonly identityGroups: IGroup[];
+```
+
+- *Type:* <a href="#aws-verifiedaccess-alpha.IGroup">IGroup</a>[]
+
+---
+
+##### `verifiedEmail`<sup>Optional</sup> <a name="verifiedEmail" id="aws-verifiedaccess-alpha.UserTrusts.property.verifiedEmail"></a>
+
+```typescript
+public readonly verifiedEmail: VerifiedEmail;
+```
+
+- *Type:* <a href="#aws-verifiedaccess-alpha.VerifiedEmail">VerifiedEmail</a>
+
+---
+
 ## Classes <a name="Classes" id="Classes"></a>
 
 ### VerifiedAccessLog <a name="VerifiedAccessLog" id="aws-verifiedaccess-alpha.VerifiedAccessLog"></a>
@@ -2986,9 +3108,34 @@ acessId.
 
 ---
 
+### IAvaPolicy <a name="IAvaPolicy" id="aws-verifiedaccess-alpha.IAvaPolicy"></a>
+
+- *Implemented By:* <a href="#aws-verifiedaccess-alpha.AvaPolicy">AvaPolicy</a>, <a href="#aws-verifiedaccess-alpha.IAvaPolicy">IAvaPolicy</a>
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#aws-verifiedaccess-alpha.IAvaPolicy.property.policy">policy</a></code> | <code>string</code> | Name of the Group. |
+
+---
+
+##### `policy`<sup>Required</sup> <a name="policy" id="aws-verifiedaccess-alpha.IAvaPolicy.property.policy"></a>
+
+```typescript
+public readonly policy: string;
+```
+
+- *Type:* string
+
+Name of the Group.
+
+---
+
 ### IGroup <a name="IGroup" id="aws-verifiedaccess-alpha.IGroup"></a>
 
-- *Implemented By:* <a href="#aws-verifiedaccess-alpha.Group">Group</a>, <a href="#aws-verifiedaccess-alpha.IGroup">IGroup</a>
+- *Implemented By:* <a href="#aws-verifiedaccess-alpha.IGroup">IGroup</a>
 
 
 #### Properties <a name="Properties" id="Properties"></a>
@@ -3040,6 +3187,7 @@ Implemented by `ServiceNetwork`.
 | <code><a href="#aws-verifiedaccess-alpha.ITrustProvider.property.id">id</a></code> | <code>string</code> | The Id of the Trust Provider. |
 | <code><a href="#aws-verifiedaccess-alpha.ITrustProvider.property.policyReferenceName">policyReferenceName</a></code> | <code>string</code> | PolicyreferenceName. |
 | <code><a href="#aws-verifiedaccess-alpha.ITrustProvider.property.type">type</a></code> | <code><a href="#aws-verifiedaccess-alpha.TrustProviderType">TrustProviderType</a></code> | The type of the Trust Provider. |
+| <code><a href="#aws-verifiedaccess-alpha.ITrustProvider.property.userTrustType">userTrustType</a></code> | <code><a href="#aws-verifiedaccess-alpha.UserTrustProviderType">UserTrustProviderType</a></code> | User Trust Type. |
 
 ---
 
@@ -3076,6 +3224,18 @@ public readonly type: TrustProviderType;
 - *Type:* <a href="#aws-verifiedaccess-alpha.TrustProviderType">TrustProviderType</a>
 
 The type of the Trust Provider.
+
+---
+
+##### `userTrustType`<sup>Optional</sup> <a name="userTrustType" id="aws-verifiedaccess-alpha.ITrustProvider.property.userTrustType"></a>
+
+```typescript
+public readonly userTrustType: UserTrustProviderType;
+```
+
+- *Type:* <a href="#aws-verifiedaccess-alpha.UserTrustProviderType">UserTrustProviderType</a>
+
+User Trust Type.
 
 ---
 
@@ -3123,6 +3283,47 @@ JamF for Mac.
 ##### `CROWDSTRIKE` <a name="CROWDSTRIKE" id="aws-verifiedaccess-alpha.DeviceTrustProviderType.CROWDSTRIKE"></a>
 
 Crowdstrike for Others.
+
+---
+
+
+### JamfRisk <a name="JamfRisk" id="aws-verifiedaccess-alpha.JamfRisk"></a>
+
+JamF Risks.
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#aws-verifiedaccess-alpha.JamfRisk.HIGH">HIGH</a></code> | *No description.* |
+| <code><a href="#aws-verifiedaccess-alpha.JamfRisk.MEDIUM">MEDIUM</a></code> | *No description.* |
+| <code><a href="#aws-verifiedaccess-alpha.JamfRisk.LOW">LOW</a></code> | *No description.* |
+| <code><a href="#aws-verifiedaccess-alpha.JamfRisk.SECURE">SECURE</a></code> | *No description.* |
+| <code><a href="#aws-verifiedaccess-alpha.JamfRisk.NOT_APPLICABLE">NOT_APPLICABLE</a></code> | *No description.* |
+
+---
+
+##### `HIGH` <a name="HIGH" id="aws-verifiedaccess-alpha.JamfRisk.HIGH"></a>
+
+---
+
+
+##### `MEDIUM` <a name="MEDIUM" id="aws-verifiedaccess-alpha.JamfRisk.MEDIUM"></a>
+
+---
+
+
+##### `LOW` <a name="LOW" id="aws-verifiedaccess-alpha.JamfRisk.LOW"></a>
+
+---
+
+
+##### `SECURE` <a name="SECURE" id="aws-verifiedaccess-alpha.JamfRisk.SECURE"></a>
+
+---
+
+
+##### `NOT_APPLICABLE` <a name="NOT_APPLICABLE" id="aws-verifiedaccess-alpha.JamfRisk.NOT_APPLICABLE"></a>
 
 ---
 
@@ -3231,6 +3432,27 @@ IAM identity.
 ##### `OIDC` <a name="OIDC" id="aws-verifiedaccess-alpha.UserTrustProviderType.OIDC"></a>
 
 OIDC.
+
+---
+
+
+### VerifiedEmail <a name="VerifiedEmail" id="aws-verifiedaccess-alpha.VerifiedEmail"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#aws-verifiedaccess-alpha.VerifiedEmail.REQUIRED">REQUIRED</a></code> | *No description.* |
+| <code><a href="#aws-verifiedaccess-alpha.VerifiedEmail.NOT_REQUIRED">NOT_REQUIRED</a></code> | *No description.* |
+
+---
+
+##### `REQUIRED` <a name="REQUIRED" id="aws-verifiedaccess-alpha.VerifiedEmail.REQUIRED"></a>
+
+---
+
+
+##### `NOT_REQUIRED` <a name="NOT_REQUIRED" id="aws-verifiedaccess-alpha.VerifiedEmail.NOT_REQUIRED"></a>
 
 ---
 

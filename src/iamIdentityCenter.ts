@@ -50,7 +50,6 @@ export class Group extends core.Resource implements IGroup {
   constructor(scope: constructs.Construct, id: string, props: GroupProps) {
     super(scope, id);
 
-
     // get the identitycenter Store Id
     const getIdentityStoreId = new cr.AwsCustomResource(this, 'GetIdentityStoreId', {
       onCreate: {
