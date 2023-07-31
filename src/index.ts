@@ -4,4 +4,4 @@ export * from './accessInstances';
 export * from './logging';
 export * from './trustprovider';
 export * from './avaPolicy';
-export { IGroup } from './iamIdentityCenter';
+export * as iamIdentityCenter from './iamIdentityCenter';
