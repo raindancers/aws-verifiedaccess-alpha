@@ -1,9 +1,8 @@
 import * as core from 'aws-cdk-lib';
 
 import * as constructs from 'constructs';
-import * as va from './index';
+import * as va from './index'
 import { iamIdentityCenter } from './index';
-
 
 export interface DeviceTrusts {
   readonly deviceTrustProvider: va.ITrustProvider;
@@ -28,11 +27,11 @@ export interface AvaPolicyProps {
    * DeviceTrusts:
    * @default none
    */
-  readonly deviceTrusts?: DeviceTrusts[];
+  readonly deviceTrusts?: DeviceTrusts[] | undefined;
   /**
    * User Trust Provider:
    */
-  readonly userTrusts: UserTrusts[];
+  readonly userTrusts?: UserTrusts[] | undefined;
   /**
    * Restrict to specific Ip address ranges
    * Consider using WAF
@@ -54,9 +53,9 @@ export interface IAvaPolicy {
 }
 
 interface IUserTrustProvider {
-  groups?: string[];
-  email?: string;
-  conditions?: string[];
+  groups: string[];
+  email: string;
+  conditions: string[];
 }
 
 
@@ -64,10 +63,10 @@ interface IUserTrustProvider {
  *
  */
 interface IPolicy {
-  usertrustProviders?: IUserTrustProvider[];
-  devicetrustProviders?: string[];
-  allowIpAddressRanges?: string[];
-  restrictIpAddressRanges?: string[];
+  usertrustProviders: IUserTrustProvider[];
+  devicetrustProviders: string[];
+  allowIpAddressRanges: string[];
+  restrictIpAddressRanges: string[];
 }
 
 /**
@@ -83,14 +82,25 @@ export class AvaPolicy extends core.Resource implements IAvaPolicy {
   constructor(scope: constructs.Construct, id: string, props: AvaPolicyProps) {
     super(scope, id);
 
+	
+
     var multipleIamTrustProvider: boolean = false;
 
-    var policyObject:IPolicy = {};
+    var policyObject:IPolicy = {
+      usertrustProviders: [],
+      devicetrustProviders: [],
+      allowIpAddressRanges: [],
+      restrictIpAddressRanges: [],      
+    };
 
     // Usertrusts first
-    props.userTrusts.forEach((userTrust) => {
+    props.userTrusts?.forEach((userTrust) => {
 
-      var userTrustPolicy: IUserTrustProvider = {};
+      var userTrustPolicy: IUserTrustProvider = {
+        groups: [],
+        email: '',
+        conditions: [],
+      };
       const policyRef = userTrust.userTrustProvider.policyReferenceName;
 
       // IAM_IDENTIFY
@@ -101,12 +111,13 @@ export class AvaPolicy extends core.Resource implements IAvaPolicy {
           throw new Error('Can only provide one IAM trust Provider');
         }
         multipleIamTrustProvider = true;
+      
 
-        // create an array of groups
-        if ( userTrust.identityGroups ) {
-          userTrust.identityGroups.forEach((group) => {
+        if ( userTrust.identityGroups != undefined ) {
+          userTrust.identityGroups?.forEach((group) => {
             userTrustPolicy.groups?.push(`context.${policyRef}.groups has "${group.id}"`);
           });
+        
         }
         // add verified email if required
         if ( userTrust.verifiedEmail ) {
@@ -171,7 +182,6 @@ export class AvaPolicy extends core.Resource implements IAvaPolicy {
 
     // Create the forbid policy
     if (policyObject.restrictIpAddressRanges) {
-      forbid.push('\t//Block IP ranges');
       forbid.push('\t(');
       policyObject.restrictIpAddressRanges.forEach((restrictIPrange, index) => {
         if (index == 0) {
@@ -185,7 +195,7 @@ export class AvaPolicy extends core.Resource implements IAvaPolicy {
 
     if (forbid.length > 0) {
       forbid.unshift('forbid(principal,action,resource) when {');
-      forbid.push(');');
+      forbid.push('};');
     }
 
     //Create the Permit policy
@@ -194,7 +204,6 @@ export class AvaPolicy extends core.Resource implements IAvaPolicy {
 
     // allow IP ranges
     if (policyObject.allowIpAddressRanges) {
-      permit.push('\t//Allow IP ranges');
       permit.push('\t(');
       policyObject.allowIpAddressRanges.forEach((allowIPrange, index) => {
         if (index == 0) {
@@ -211,6 +220,7 @@ export class AvaPolicy extends core.Resource implements IAvaPolicy {
       if (addAnd) {
         permit.push('\t&&');
       }
+      permit.push('\t(');
       addAnd = true;
 
       policyObject.devicetrustProviders.forEach((deviceTrust, index) => {
@@ -223,6 +233,9 @@ export class AvaPolicy extends core.Resource implements IAvaPolicy {
       permit.push('\t)');
       addAnd = true;
     };
+
+   
+
 
     // user trust providers
     if (policyObject.usertrustProviders) {
@@ -245,71 +258,75 @@ export class AvaPolicy extends core.Resource implements IAvaPolicy {
         }
 
         if (userTrust.email && userTrust.groups) {
-          permit.push('\t('); //  (
+          permit.push('\t\t('); //  (
         }
 
-        if (userTrust.groups) {
-          permit.push('\t\t// IAM IndentityCenter Conditions'); //    // IdentityCenter
-          permit.push('\t\t('); //    (
+        if (userTrust.groups.length !=0) {
+          permit.push('\t\t\t('); //    (
           userTrust.groups.forEach((group, index2) => {
             if (index2 == 0) {
-              permit.push('\t\t\t' + group); //    group xxxx
+              permit.push('\t\t\t\t' + group); //    group xxxx
             } else {
-              permit.push('\t\t\t' + '|| ' + group); //    || group yy
+              permit.push('\t\t\t\t' + '|| ' + group); //    || group yy
             }
           });
-          permit.push('\t\t)'); //    )
+          permit.push('\t\t\t)'); //    )
         }
 
         if (userTrust.email && userTrust.groups) {
-          permit.push('\t\t&'); //  &&
+          permit.push('\t\t\t&&'); //  &&
         }
 
         if (userTrust.email) {
-          permit.push('\t\t('); //  (
-          permit.push('\t\t\t' + userTrust.email); //    email
+          permit.push('\t\t\t('); //  (
+          permit.push('\t\t\t\t' + userTrust.email); //    email
           permit.push('\t\t'); //  )
         }
 
         if (userTrust.email && userTrust.groups) {
-          permit.push('\t)'); //  &&
+          permit.push('\t\t\t)'); //
         }
 
         if (userTrust.conditions) {
 
           userTrust.conditions.forEach((condition, index3) => {
             if (index3 == 0) {
-              permit.push('\t\t' + condition);
+              permit.push('\t\t(');
+              permit.push('\t\t\t' + condition);
             } else {
-              permit.push('\t\t' + '|| ' + condition);
+              permit.push('\t\t\t' + '|| ' + condition);
             }
           });
-          permit.push('\t)');
+          permit.push('\t\t)');
         };
       });
 
       if (userTrustProviderCount != 1) {
         permit.push('\t)');
       }
-
-      permit.push('\t)');
-
     }
+
+    
 
     if (permit.length > 0) {
-      forbid.unshift('permit(principal,action,resource) when {');
-      permit.push(');');
+      permit.unshift('permit(principal,action,resource) when {');
+      permit.push('};');
     }
+
+
 
     // Create the test policy
 
-    this.policy = '';
+    var policy = '';
     forbid.forEach((line) => {
-      this.policy.concat(line + '\n');
+      policy = policy.concat(line + '\n');
     });
     permit.forEach((line) => {
-      this.policy.concat(line + '\n');
+      policy = policy.concat(line + '\n');
     });
+
+    this.policy = policy;
+    
   }
 }
 
