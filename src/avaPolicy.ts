@@ -1,7 +1,7 @@
 import * as core from 'aws-cdk-lib';
 
 import * as constructs from 'constructs';
-import * as va from './index'
+import * as va from './index';
 import { iamIdentityCenter } from './index';
 
 export interface DeviceTrusts {
@@ -82,7 +82,6 @@ export class AvaPolicy extends core.Resource implements IAvaPolicy {
   constructor(scope: constructs.Construct, id: string, props: AvaPolicyProps) {
     super(scope, id);
 
-	
 
     var multipleIamTrustProvider: boolean = false;
 
@@ -90,7 +89,7 @@ export class AvaPolicy extends core.Resource implements IAvaPolicy {
       usertrustProviders: [],
       devicetrustProviders: [],
       allowIpAddressRanges: [],
-      restrictIpAddressRanges: [],      
+      restrictIpAddressRanges: [],
     };
 
     // Usertrusts first
@@ -111,13 +110,13 @@ export class AvaPolicy extends core.Resource implements IAvaPolicy {
           throw new Error('Can only provide one IAM trust Provider');
         }
         multipleIamTrustProvider = true;
-      
+
 
         if ( userTrust.identityGroups != undefined ) {
           userTrust.identityGroups?.forEach((group) => {
             userTrustPolicy.groups?.push(`context.${policyRef}.groups has "${group.id}"`);
           });
-        
+
         }
         // add verified email if required
         if ( userTrust.verifiedEmail ) {
@@ -234,8 +233,6 @@ export class AvaPolicy extends core.Resource implements IAvaPolicy {
       addAnd = true;
     };
 
-   
-
 
     // user trust providers
     if (policyObject.usertrustProviders) {
@@ -306,13 +303,11 @@ export class AvaPolicy extends core.Resource implements IAvaPolicy {
       }
     }
 
-    
 
     if (permit.length > 0) {
       permit.unshift('permit(principal,action,resource) when {');
       permit.push('};');
     }
-
 
 
     // Create the test policy
@@ -326,7 +321,7 @@ export class AvaPolicy extends core.Resource implements IAvaPolicy {
     });
 
     this.policy = policy;
-    
+
   }
 }
 

@@ -1907,22 +1907,10 @@ const avaPolicyProps: AvaPolicyProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#aws-verifiedaccess-alpha.AvaPolicyProps.property.userTrusts">userTrusts</a></code> | <code><a href="#aws-verifiedaccess-alpha.UserTrusts">UserTrusts</a>[]</code> | User Trust Provider:. |
 | <code><a href="#aws-verifiedaccess-alpha.AvaPolicyProps.property.allowIPranges">allowIPranges</a></code> | <code>string[]</code> | Restrict to specific Ip address ranges Consider using WAF. |
 | <code><a href="#aws-verifiedaccess-alpha.AvaPolicyProps.property.blockIPranges">blockIPranges</a></code> | <code>string[]</code> | Block IP ranges Consider using WAF. |
 | <code><a href="#aws-verifiedaccess-alpha.AvaPolicyProps.property.deviceTrusts">deviceTrusts</a></code> | <code><a href="#aws-verifiedaccess-alpha.DeviceTrusts">DeviceTrusts</a>[]</code> | DeviceTrusts:. |
-
----
-
-##### `userTrusts`<sup>Required</sup> <a name="userTrusts" id="aws-verifiedaccess-alpha.AvaPolicyProps.property.userTrusts"></a>
-
-```typescript
-public readonly userTrusts: UserTrusts[];
-```
-
-- *Type:* <a href="#aws-verifiedaccess-alpha.UserTrusts">UserTrusts</a>[]
-
-User Trust Provider:.
+| <code><a href="#aws-verifiedaccess-alpha.AvaPolicyProps.property.userTrusts">userTrusts</a></code> | <code><a href="#aws-verifiedaccess-alpha.UserTrusts">UserTrusts</a>[]</code> | User Trust Provider:. |
 
 ---
 
@@ -1960,6 +1948,18 @@ public readonly deviceTrusts: DeviceTrusts[];
 - *Default:* none
 
 DeviceTrusts:.
+
+---
+
+##### `userTrusts`<sup>Optional</sup> <a name="userTrusts" id="aws-verifiedaccess-alpha.AvaPolicyProps.property.userTrusts"></a>
+
+```typescript
+public readonly userTrusts: UserTrusts[];
+```
+
+- *Type:* <a href="#aws-verifiedaccess-alpha.UserTrusts">UserTrusts</a>[]
+
+User Trust Provider:.
 
 ---
 
